@@ -5,6 +5,63 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "objectscript",
+      "request": "launch",
+      "name": "ObjectScript Run current routine",
+      "program": "${file}"
+    },
+    {
+      "name": "Python: Remote Attach",
+      "type": "python",
+      "request": "attach",
+      "connect": {
+        "host": "localhost",
+        "port": 5678
+      },
+      "pathMappings": [
+        {
+          "localRoot": "",
+          "remoteRoot": "."
+        }
+      ]
+    },
+    {
+      "type": "cobol",
+      "request": "launch",
+      "name": "COBOL (native): remote",
+      "program": "<insert-program-name-here>",
+      "remoteDebug": {
+        "machine": "Please enter the name or IP address of the machine runing cobdebugremote.",
+        "port": 0
+      },
+      "stopOnEntry": true
+    },
+    {
+   1   "name": "Python Debugger: Current File with Arguments",
+      "type": "python",
+      "request": "launch",
+      "program": "",
+      "console": "integratedTerminal",
+      "args": "pickArgs"
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+    {
       "name": "Launch Mergington WebApp",
       "type": "debugpy",
       "request": "launch",
